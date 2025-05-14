@@ -11,15 +11,10 @@ def character_count(string):
             characters[char] = 1
     return characters
 
-def create_report(dict, words, book):
+def create_report(dict):
     sorted_list = []
-    sorted_list.append("============ BOOKBOT ============")
-    sorted_list.append(f"Analyzing book found at {book}...")
-    sorted_list.append("----------- Word Count ----------")
-    sorted_list.append(f"Found {words} total words")
-    sorted_list.append("--------- Character Count -------")
-    
     for i in sorted(dict, key=dict.get, reverse=True):
+        if not i.isalpha():
+            continue
         sorted_list.append(f"{i}: {dict[i]}")
-    sorted_list.append("============= END ===============")
     return sorted_list
